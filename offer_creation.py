@@ -149,7 +149,7 @@ class OfferCreator:
         }
 
     async def create_offer(self, session: aiohttp.ClientSession, offer_number: int) -> None:
-        offer_name = f"dynamic_offer_1000_workers_{offer_number}"
+        offer_name = f"dynamic_offer_1000_workers_{datetime.now().strftime('%Y%m%d%H%M%S%f')}_{offer_number}"
         payload = self.get_offer_payload(offer_name)
         
         max_retries = 3
